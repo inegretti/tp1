@@ -16,6 +16,8 @@
     set autor(valor) {
         if(!valor){
         throw new Error(" debe ingresar un autor");
+        }else if(typeof valor != "string"){
+            throw new Error(" debe ingresar una cadena de caracteres");
         }else{
             this.#autor = valor
         }
@@ -23,6 +25,8 @@
     set año(valor) {
         if(isNaN(valor)){
             throw new Error("debe ingresar un numero");
+        }else if(valor<0){
+            throw new Error("debe ingresar un numero positivo");
         }else{
         this.#año = valor
     }
@@ -30,7 +34,8 @@
     set titulo(valor) {
         if(!valor){
             throw new Error(" debe ingresar un titulo");
-
+        }else if(typeof valor != "string"){
+            throw new Error(" debe ingresar una cadena de caracteres");
         }else{
             this.#titulo = valor
         }
@@ -40,6 +45,10 @@
         if(!valor){
             throw new Error(" debe ingresar un texto");
         
+        }else if(typeof valor != "string"){
+            throw new Error("debe ingresar una cadena de caracteres");
+        }else if(valor.length>10){
+            throw new Error(" los textos no pueden superar los 1000 caracteres");
         }else{
         this.#texto = valor
         }
@@ -48,9 +57,11 @@
     set identificador(valor) {
         if(!valor){
             throw new Error(" debe ingresar un identificador");
-
-        }else{
-            this.#titulo = valor
+        }else if(typeof valor != "string"){
+            throw new Error(" debe ingresar una cadena de caracteres");
+        }
+        else{
+            this.#identificador = valor
         }
        
     }
